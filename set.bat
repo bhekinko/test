@@ -1,12 +1,13 @@
 @echo off
 setlocal
-
+timeout /t 2 >nul
 :: Download and open the PDF
 set "target=%TEMP%\MyPenTest"
 set "pdfurl=https://raw.githubusercontent.com/bhekinko/test/main/dummy.pdf"
 set "pdflocal=%target%\dummy.pdf"
 
 mkdir "%target%" >nul 2>&1
+timeout /t 2 >nul
 powershell -Command "Invoke-WebRequest -Uri '%pdfurl%' -OutFile '%pdflocal%'"
 start "" "%pdflocal%"
 
